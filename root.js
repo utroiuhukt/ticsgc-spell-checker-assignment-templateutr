@@ -1,0 +1,3 @@
+function Coolsies() {
+    return "Coooool!";
+}
