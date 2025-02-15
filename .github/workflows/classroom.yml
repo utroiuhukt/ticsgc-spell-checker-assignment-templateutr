@@ -22,15 +22,17 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: npm install
+        
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install -g markdownlint-cli
+          npm install -g cspell
+          
+      # Run Markdown linting
+      - name: Run Markdownlint
+        run: markdownlint "./homework/*.md"
 
-      # Run your custom test file
-      - name: Run tests
-        run: npm run test:ci
-
-      - name: When tests pass
-        if: success()
-        run: echo "All tests passed! Great job!"
-
-      - name: When tests fail
-        if: failure()
-        run: echo "Test failed. This does not pass the assignment. Try again, change your code and see if you can make your assignment pass."
+      # Run spellchecking
+      - name: Run Spellchecking
+        run: cspell "./homework/*.md"
