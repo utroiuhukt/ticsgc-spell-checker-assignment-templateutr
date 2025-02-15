@@ -1,5 +1,5 @@
 function CoolCalculus() {
-    return null;
+    return 1080;
 }
 
 module.exports ={
